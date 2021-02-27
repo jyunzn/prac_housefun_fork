@@ -1,0 +1,17 @@
+.wrapper {
+    width: 980px;
+    margin: auto;
+}
+
+.clear:after {
+    content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+// html {
+// 	font: 13px/1.6em "Century Gothic",sans-serif,serif;
+// }
+

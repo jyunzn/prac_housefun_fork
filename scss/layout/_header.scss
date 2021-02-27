@@ -1,0 +1,227 @@
+@import 
+    '../helpers/mixins',
+    '../helpers/variable';
+
+
+.header {
+    padding-top: 5px;
+}
+.header .main {
+    height: 58px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    font: normal 300 13px/20px "Century Gothic", sans-serif, serif;
+    .logo-box {
+        height: 100%;
+        width: 122px;
+        h1 {
+            text-indent: -9999px;
+            height: 0;
+        }
+    }
+
+    .feat-list {
+        display: flex;
+        
+        &-item {
+            padding: 0 10px;
+
+            &.hover-down {
+                z-index: 999;
+                .hover-down-item {
+                    width: 124px;
+
+                    &:before {
+                        @include triangle;
+                        border: 10px solid transparent;
+                        border-bottom-color: #ccc;
+            
+                        position: absolute;
+                        top: -21px;
+                        right: 19px;
+                    }
+                    &:after {
+                        @include triangle;
+                        border: 9px solid transparent;
+                        border-bottom-color: white;
+                        
+                        position: absolute;
+                        top: -18px;
+                        right: 20px;
+                    }
+                }
+                
+            }
+        }
+    }
+    .good-program {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        color: #6a6;
+    }
+}
+
+.header .icon-box {
+    display: inline-block;
+    width: 20px;
+    
+    .icon {
+        height: 100%;
+        width: 100%;
+    }
+    &.select-icon {
+        height: 8px;
+    }
+    &.phone-icon {
+        height: 20px;
+        vertical-align: text-top;
+    }
+}
+
+.header .hover-down {
+    position:   relative;
+    height: 30px;
+    // z-index: 999;
+    
+    &-item {
+        max-height: 0;
+        overflow: hidden;
+        transition: all ease .3s;
+        position: absolute;
+        right: 0;
+        margin-top: 10px;
+        background: white;
+        li {
+            // width: 124px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0;
+            &:last-child {
+                border-bottom: 0;
+            }
+            &:hover {
+                background: #f8f8f8;
+                color: #6A6;
+            }
+        }
+    }
+    &:hover .hover-down-item {
+        overflow: unset;
+        border: 1px solid #ccc;
+        max-height: 999px;
+        
+    }
+}
+
+// 
+.header .menu {
+    border-top: 1px solid #ccc;
+    &-list {
+        display: flex;
+        align-items: center;
+        &-item {
+            flex: 1;
+            border-left: 1px solid #ccc;
+            height: 76px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .icon-box {
+                width: 24px;
+                height: 24px;
+            }
+            &:last-child {
+                border-right: 1px solid #ccc;
+            }
+            &.home {
+                width: 60px;
+                flex: none;
+            }
+            &.tv .tag {
+                color: map-get($menu-color, tv);
+            }
+            > .tag {
+                font: 16px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+                color: #333;
+            }
+
+            svg {
+                fill: #ccc;
+                transition: fill $menu-hover-function-timing $menu-hover-time;
+            }
+            &.tv svg {
+                fill: map-get($menu-color, tv);
+            }
+
+            &.more {
+                position: relative;
+
+                .more-list {
+                    position: absolute;
+                    bottom: -166px;
+                    width: 100%;
+                    transform: translateY(100%);
+                    bottom: 0;
+
+                    li:hover {
+                        color: map-get($menu-color, 'more');
+                    }
+                }
+            }
+        }
+        @each $key, $val in $menu-color {
+            .#{$key}:hover .icon {
+                fill: $val;
+            }
+            .#{$key}.focus {
+                position: relative;
+                .icon {
+                    fill: $val;
+                }
+                &::after {
+                    @include triangle;
+                    border: 10px solid transparent;
+                    border-bottom-color: $val;
+
+                    position: absolute;
+                    bottom: 0;
+                    
+                }
+            }
+        }
+    }
+
+
+
+}
+
+
+.header {
+    .submenu {
+        color: white;
+        font: 16px/40px "微軟正黑體","Century Gothic",sans-serif,serif;
+        line-height: 41px;
+        
+        ul {
+            padding-left: 60px;
+        }
+        li {
+            float: left;
+            padding: 0 25px;
+        }
+        .focus {
+            color: #ff6;
+        }
+    }
+    @each $key, $val in $menu-color {
+        > .#{$key} {
+            background-color: #{$val};
+            border: 3px solid #{$val};
+        }
+    };
+};
+

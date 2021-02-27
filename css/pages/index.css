@@ -1,0 +1,333 @@
+@charset "UTF-8";
+.header {
+  padding-top: 5px; }
+
+.header .main {
+  height: 58px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font: normal 300 13px/20px "Century Gothic", sans-serif, serif; }
+  .header .main .logo-box {
+    height: 100%;
+    width: 122px; }
+    .header .main .logo-box h1 {
+      text-indent: -9999px;
+      height: 0; }
+  .header .main .feat-list {
+    display: flex; }
+    .header .main .feat-list-item {
+      padding: 0 10px; }
+      .header .main .feat-list-item.hover-down {
+        z-index: 999; }
+        .header .main .feat-list-item.hover-down .hover-down-item {
+          width: 124px; }
+          .header .main .feat-list-item.hover-down .hover-down-item:before {
+            content: '';
+            display: block;
+            height: 0;
+            width: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid transparent;
+            border-bottom-color: #ccc;
+            position: absolute;
+            top: -21px;
+            right: 19px; }
+          .header .main .feat-list-item.hover-down .hover-down-item:after {
+            content: '';
+            display: block;
+            height: 0;
+            width: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 9px solid transparent;
+            border-bottom-color: white;
+            position: absolute;
+            top: -18px;
+            right: 20px; }
+  .header .main .good-program {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #6a6; }
+
+.header .icon-box {
+  display: inline-block;
+  width: 20px; }
+  .header .icon-box .icon {
+    height: 100%;
+    width: 100%; }
+  .header .icon-box.select-icon {
+    height: 8px; }
+  .header .icon-box.phone-icon {
+    height: 20px;
+    vertical-align: text-top; }
+
+.header .hover-down {
+  position: relative;
+  height: 30px; }
+  .header .hover-down-item {
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease .3s;
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    background: white; }
+    .header .hover-down-item li {
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      padding: 5px 0; }
+      .header .hover-down-item li:last-child {
+        border-bottom: 0; }
+      .header .hover-down-item li:hover {
+        background: #f8f8f8;
+        color: #6A6; }
+  .header .hover-down:hover .hover-down-item {
+    overflow: unset;
+    border: 1px solid #ccc;
+    max-height: 999px; }
+
+.header .menu {
+  border-top: 1px solid #ccc; }
+  .header .menu-list {
+    display: flex;
+    align-items: center; }
+    .header .menu-list-item {
+      flex: 1;
+      border-left: 1px solid #ccc;
+      height: 76px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .header .menu-list-item .icon-box {
+        width: 24px;
+        height: 24px; }
+      .header .menu-list-item:last-child {
+        border-right: 1px solid #ccc; }
+      .header .menu-list-item.home {
+        width: 60px;
+        flex: none; }
+      .header .menu-list-item.tv .tag {
+        color: #ff6c0a; }
+      .header .menu-list-item > .tag {
+        font: 16px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+        color: #333; }
+      .header .menu-list-item svg {
+        fill: #ccc;
+        transition: fill ease 0.5s; }
+      .header .menu-list-item.tv svg {
+        fill: #ff6c0a; }
+      .header .menu-list-item.more {
+        position: relative; }
+        .header .menu-list-item.more .more-list {
+          position: absolute;
+          bottom: -166px;
+          width: 100%;
+          transform: translateY(100%);
+          bottom: 0; }
+          .header .menu-list-item.more .more-list li:hover {
+            color: #58a; }
+    .header .menu-list .home:hover .icon {
+      fill: #6a6; }
+    .header .menu-list .home.focus {
+      position: relative; }
+      .header .menu-list .home.focus .icon {
+        fill: #6a6; }
+      .header .menu-list .home.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #6a6;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .buy:hover .icon {
+      fill: #6a6; }
+    .header .menu-list .buy.focus {
+      position: relative; }
+      .header .menu-list .buy.focus .icon {
+        fill: #6a6; }
+      .header .menu-list .buy.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #6a6;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .new:hover .icon {
+      fill: #0ead99; }
+    .header .menu-list .new.focus {
+      position: relative; }
+      .header .menu-list .new.focus .icon {
+        fill: #0ead99; }
+      .header .menu-list .new.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #0ead99;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .lease:hover .icon {
+      fill: #3aaebc; }
+    .header .menu-list .lease.focus {
+      position: relative; }
+      .header .menu-list .lease.focus .icon {
+        fill: #3aaebc; }
+      .header .menu-list .lease.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #3aaebc;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .real-price:hover .icon {
+      fill: #9c3; }
+    .header .menu-list .real-price.focus {
+      position: relative; }
+      .header .menu-list .real-price.focus .icon {
+        fill: #9c3; }
+      .header .menu-list .real-price.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #9c3;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .price-reduction-map:hover .icon {
+      fill: #ff6c0a; }
+    .header .menu-list .price-reduction-map.focus {
+      position: relative; }
+      .header .menu-list .price-reduction-map.focus .icon {
+        fill: #ff6c0a; }
+      .header .menu-list .price-reduction-map.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #ff6c0a;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .tv:hover .icon {
+      fill: #ff6c0a; }
+    .header .menu-list .tv.focus {
+      position: relative; }
+      .header .menu-list .tv.focus .icon {
+        fill: #ff6c0a; }
+      .header .menu-list .tv.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #ff6c0a;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .news:hover .icon {
+      fill: #4a7; }
+    .header .menu-list .news.focus {
+      position: relative; }
+      .header .menu-list .news.focus .icon {
+        fill: #4a7; }
+      .header .menu-list .news.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #4a7;
+        position: absolute;
+        bottom: 0; }
+    .header .menu-list .more:hover .icon {
+      fill: #58a; }
+    .header .menu-list .more.focus {
+      position: relative; }
+      .header .menu-list .more.focus .icon {
+        fill: #58a; }
+      .header .menu-list .more.focus::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        line-height: 0;
+        font-size: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #58a;
+        position: absolute;
+        bottom: 0; }
+
+.header .submenu {
+  color: white;
+  font: 16px/40px "微軟正黑體","Century Gothic",sans-serif,serif;
+  line-height: 41px; }
+  .header .submenu ul {
+    padding-left: 60px; }
+  .header .submenu li {
+    float: left;
+    padding: 0 25px; }
+  .header .submenu .focus {
+    color: #ff6; }
+
+.header > .home {
+  background-color: #6a6;
+  border: 3px solid #6a6; }
+
+.header > .buy {
+  background-color: #6a6;
+  border: 3px solid #6a6; }
+
+.header > .new {
+  background-color: #0ead99;
+  border: 3px solid #0ead99; }
+
+.header > .lease {
+  background-color: #3aaebc;
+  border: 3px solid #3aaebc; }
+
+.header > .real-price {
+  background-color: #9c3;
+  border: 3px solid #9c3; }
+
+.header > .price-reduction-map {
+  background-color: #ff6c0a;
+  border: 3px solid #ff6c0a; }
+
+.header > .tv {
+  background-color: #ff6c0a;
+  border: 3px solid #ff6c0a; }
+
+.header > .news {
+  background-color: #4a7;
+  border: 3px solid #4a7; }
+
+.header > .more {
+  background-color: #58a;
+  border: 3px solid #58a; }
