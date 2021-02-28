@@ -1,0 +1,36 @@
+// <div class="select-box search-input" id="city-btn">
+//     縣市
+//     <i><svg class="icon" width="200px" height="200.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#333333" d="M940.884512 276.804327c-21.594831-21.594831-56.607252-21.594831-78.203106 0L510.770498 628.716258 158.858566 276.804327c-21.594831-21.594831-56.607252-21.594831-78.203106 0-21.594831 21.594831-21.594831 56.607252 0 78.203106l391.013484 391.013485c21.594831 21.594831 56.607252 21.594831 78.203107 0l0.001023-0.001023 391.012462-391.012462c21.594831-21.595854 21.594831-56.608276-0.001024-78.203106z" /></svg></i>
+// </div>
+.select-box {
+    line-height: 32px;
+    padding: 0 25px 0 10px;
+    font: 14px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+    color: #333;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    background: white;
+    position: relative;
+    cursor: pointer;
+
+    i {
+        position: absolute;
+        right: 5px;
+        top: 0;
+        height: 10px;
+        width: 10px;
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.my-options {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    background: white;
+    width: 100%;
+    z-index: 9;
+}

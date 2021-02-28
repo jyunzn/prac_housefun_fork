@@ -9,8 +9,10 @@
   position: relative;
   font: normal 300 13px/20px "Century Gothic", sans-serif, serif; }
   .header .main .logo-box {
-    height: 100%;
-    width: 122px; }
+    display: block;
+    height: 48px;
+    width: 122px;
+    background-image: url(../../imgs/m-nav-logo-idx.png); }
     .header .main .logo-box h1 {
       text-indent: -9999px;
       height: 0; }
@@ -18,6 +20,10 @@
     display: flex; }
     .header .main .feat-list-item {
       padding: 0 10px; }
+      .header .main .feat-list-item a {
+        display: block; }
+      .header .main .feat-list-item a:hover {
+        text-decoration: underline; }
       .header .main .feat-list-item.hover-down {
         z-index: 999; }
         .header .main .feat-list-item.hover-down .hover-down-item {
@@ -49,8 +55,9 @@
   .header .main .good-program {
     position: absolute;
     right: 0;
-    bottom: 0;
-    color: #6a6; }
+    bottom: 0; }
+    .header .main .good-program a {
+      color: #6a6; }
 
 .header .icon-box {
   display: inline-block;
@@ -76,6 +83,7 @@
     margin-top: 10px;
     background: white; }
     .header .hover-down-item li {
+      cursor: pointer;
       text-align: center;
       border-bottom: 1px solid #ccc;
       padding: 5px 0; }
@@ -97,11 +105,15 @@
     .header .menu-list-item {
       flex: 1;
       border-left: 1px solid #ccc;
-      height: 76px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; }
+      height: 76px; }
+      .header .menu-list-item a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
       .header .menu-list-item .icon-box {
         width: 24px;
         height: 24px; }
@@ -121,7 +133,8 @@
       .header .menu-list-item.tv svg {
         fill: #ff6c0a; }
       .header .menu-list-item.more {
-        position: relative; }
+        position: relative;
+        z-index: 9; }
         .header .menu-list-item.more .more-list {
           position: absolute;
           bottom: -166px;
@@ -146,7 +159,9 @@
         border: 10px solid transparent;
         border-bottom-color: #6a6;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .buy:hover .icon {
       fill: #6a6; }
     .header .menu-list .buy.focus {
@@ -163,7 +178,9 @@
         border: 10px solid transparent;
         border-bottom-color: #6a6;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .new:hover .icon {
       fill: #0ead99; }
     .header .menu-list .new.focus {
@@ -180,7 +197,9 @@
         border: 10px solid transparent;
         border-bottom-color: #0ead99;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .lease:hover .icon {
       fill: #3aaebc; }
     .header .menu-list .lease.focus {
@@ -197,7 +216,9 @@
         border: 10px solid transparent;
         border-bottom-color: #3aaebc;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .real-price:hover .icon {
       fill: #9c3; }
     .header .menu-list .real-price.focus {
@@ -214,7 +235,9 @@
         border: 10px solid transparent;
         border-bottom-color: #9c3;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .price-reduction-map:hover .icon {
       fill: #ff6c0a; }
     .header .menu-list .price-reduction-map.focus {
@@ -231,7 +254,9 @@
         border: 10px solid transparent;
         border-bottom-color: #ff6c0a;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .tv:hover .icon {
       fill: #ff6c0a; }
     .header .menu-list .tv.focus {
@@ -248,7 +273,9 @@
         border: 10px solid transparent;
         border-bottom-color: #ff6c0a;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .news:hover .icon {
       fill: #4a7; }
     .header .menu-list .news.focus {
@@ -265,7 +292,9 @@
         border: 10px solid transparent;
         border-bottom-color: #4a7;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
     .header .menu-list .more:hover .icon {
       fill: #58a; }
     .header .menu-list .more.focus {
@@ -282,7 +311,9 @@
         border: 10px solid transparent;
         border-bottom-color: #58a;
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); }
 
 .header .submenu {
   color: white;
@@ -331,3 +362,515 @@
 .header > .more {
   background-color: #58a;
   border: 3px solid #58a; }
+
+.select-box {
+  line-height: 32px;
+  padding: 0 25px 0 10px;
+  font: 14px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+  color: #333;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  background: white;
+  position: relative;
+  cursor: pointer; }
+  .select-box i {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    height: 10px;
+    width: 10px; }
+    .select-box i svg {
+      height: 100%;
+      width: 100%; }
+
+.my-options {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  background: white;
+  width: 100%;
+  z-index: 9; }
+
+.search-btn {
+  padding: 0 10px;
+  line-height: 30px;
+  background: #F63;
+  color: white;
+  font: bold 15px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+  border-radius: 3px;
+  cursor: pointer; }
+  .search-btn:hover {
+    background: #E40; }
+
+.main .banner {
+  background: url(../../imgs/banner.jpg) no-repeat center;
+  height: 360px;
+  position: relative;
+  z-index: 1; }
+  .main .banner .content-box {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%); }
+  .main .banner .title {
+    color: white;
+    height: 40px;
+    font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
+    margin-bottom: 10px; }
+    .main .banner .title h2 {
+      float: left;
+      font-size: 40px;
+      line-height: 40px;
+      border-right: 1px solid white;
+      padding-right: 10px; }
+    .main .banner .title span {
+      float: left;
+      display: flex;
+      height: 100%;
+      flex-direction: column-reverse;
+      padding-left: 10px; }
+  .main .banner .search-bg {
+    height: 92px;
+    width: 906px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px; }
+  .main .banner .search {
+    display: flex;
+    padding: 30px 20px; }
+    .main .banner .search .select-box {
+      margin-right: 5px; }
+    .main .banner .search .input {
+      display: inline-block;
+      border: 1px solid #d9d9d9;
+      border-radius: 3px;
+      flex: 1;
+      margin-right: 5px; }
+      .main .banner .search .input input {
+        width: 100%;
+        border: 0;
+        padding: 5px 10px;
+        color: #333;
+        font-size: 13px;
+        line-height: 20px;
+        outline-color: #6A6;
+        border-radius: 3px; }
+
+.main .banner .select-area {
+  visibility: hidden;
+  width: 615px;
+  background: white;
+  font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
+  border: 1px solid #CCC;
+  padding-bottom: 10px;
+  overflow: hidden;
+  font-size: 13px; }
+  .main .banner .select-area-tip-box {
+    padding: 15px 25px;
+    border-bottom: 1px solid #CCC; }
+  .main .banner .select-area-main-box {
+    width: 9999px; }
+    .main .banner .select-area-main-box .option {
+      line-height: 25px;
+      display: inline-block;
+      padding: 0 10px 0 30px;
+      position: relative;
+      width: 82px;
+      margin: 5px; }
+      .main .banner .select-area-main-box .option input {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%); }
+      .main .banner .select-area-main-box .option i {
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        position: absolute;
+        background: white;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0; }
+        .main .banner .select-area-main-box .option i svg {
+          height: 100%;
+          width: 100%; }
+      .main .banner .select-area-main-box .option.select {
+        border: 1px solid #ccc;
+        border-radius: 3px; }
+        .main .banner .select-area-main-box .option.select i {
+          opacity: 1; }
+    .main .banner .select-area-main-box .city, .main .banner .select-area-main-box .area {
+      transition: all ease .3s;
+      float: left;
+      width: 595px;
+      padding: 10px;
+      margin: 10px; }
+  .main .banner .select-area-btn {
+    text-align: center;
+    padding: 10px 0 15px 0; }
+  .main .banner .select-area-selected-box {
+    padding: 10px 20px;
+    font-size: 0;
+    background: #f8f8f8;
+    margin: 0 10px;
+    padding: 10px; }
+    .main .banner .select-area-selected-box .tag {
+      padding: 0 28px 0 8px;
+      border: 1px solid #666;
+      font: 13px/27px "Century Gothic",sans-serif,serif;
+      position: relative;
+      color: #666;
+      margin: -1px 0 0 -1px;
+      background: #fff; }
+      .main .banner .select-area-selected-box .tag::after {
+        content: 'x';
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%); }
+      .main .banner .select-area-selected-box .tag:hover {
+        background: #f8f8f8; }
+
+.main .main-public {
+  font-family: "微軟正黑體","Century Gothic",sans-serif,serif; }
+  .main .main-public header {
+    text-align: center; }
+    .main .main-public header h3 {
+      position: relative; }
+      .main .main-public header h3 span {
+        display: block;
+        line-height: 34px; }
+      .main .main-public header h3 .title {
+        font-size: 34px;
+        color: #65ad65;
+        background-color: white;
+        width: fit-content;
+        margin: auto; }
+      .main .main-public header h3 .subtitle {
+        font-size: 18px;
+        color: #666; }
+      .main .main-public header h3::after {
+        content: '';
+        display: block;
+        border-top: 5px dashed rgba(102, 102, 102, 0.4);
+        position: absolute;
+        top: 17px;
+        width: 100%;
+        z-index: -1; }
+
+.slogan {
+  color: #65ad65;
+  font-size: 26px;
+  padding-bottom: 20px;
+  position: relative;
+  width: fit-content; }
+  .slogan::before, .slogan::after {
+    position: absolute;
+    font-size: 78px; }
+  .slogan::before {
+    content: '“'; }
+  .slogan::after {
+    content: '”'; }
+
+.main-city-btn li {
+  color: white;
+  background: #b8b8b8;
+  line-height: 30px;
+  padding: 0 20px;
+  border-radius: 20px;
+  cursor: pointer; }
+
+.main .reality {
+  padding-top: 35px; }
+  .main .reality main .main-city-select, .main .reality main .main-city-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .main .reality main .main-city-select {
+    padding-top: 20px; }
+    .main .reality main .main-city-select li {
+      margin-left: 10px; }
+  .main .reality main .main-city-btn li:hover {
+    transition: all ease .1s;
+    background: #f63; }
+  .main .reality main .object {
+    display: flex;
+    padding: 40px 0 60px; }
+    .main .reality main .object figure {
+      margin-right: 11px; }
+      .main .reality main .object figure:last-child {
+        margin-right: 0; }
+      .main .reality main .object figure .img-box {
+        margin-bottom: 10px; }
+      .main .reality main .object figure figcaption .top {
+        color: #666;
+        font-size: 14px; }
+      .main .reality main .object figure figcaption .bottom {
+        color: #333;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between; }
+        .main .reality main .object figure figcaption .bottom .name {
+          max-width: 140px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden; }
+        .main .reality main .object figure figcaption .bottom .money .number {
+          color: #f33;
+          font-size: 22px; }
+
+.main .cut-map main {
+  margin: 20px 0; }
+  .main .cut-map main > div {
+    float: left; }
+  .main .cut-map main .price-map-imgs-box {
+    height: 355px;
+    width: 530px;
+    margin-right: 60px; }
+  .main .cut-map main .price-map-infos {
+    width: 360px;
+    padding-top: 25px; }
+    .main .cut-map main .price-map-infos .select-area {
+      width: 360px;
+      height: 33px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px; }
+      .main .cut-map main .price-map-infos .select-area select {
+        margin-right: 3px;
+        padding: 4px 4px 4px 10px;
+        font: bold 15px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+        min-width: 90px;
+        outline: none;
+        height: 30px;
+        border: 1px solid #CCC;
+        border-radius: 3px;
+        cursor: pointer; }
+      .main .cut-map main .price-map-infos .select-area .ava {
+        flex: 1;
+        margin-left: 4px; }
+        .main .cut-map main .price-map-infos .select-area .ava span {
+          color: #f33;
+          font-size: 35px; }
+    .main .cut-map main .price-map-infos .detail-info {
+      border-top: 2px solid #b4dab5; }
+      .main .cut-map main .price-map-infos .detail-info li {
+        display: flex;
+        padding: 10px 0;
+        color: #333;
+        border-bottom: 1px solid #e5e5e5; }
+        .main .cut-map main .price-map-infos .detail-info li .price-field-range {
+          flex: 4; }
+        .main .cut-map main .price-map-infos .detail-info li .price-field-number {
+          flex: 3; }
+        .main .cut-map main .price-map-infos .detail-info li .count {
+          flex: 2; }
+          .main .cut-map main .price-map-infos .detail-info li .count span {
+            width: 30px;
+            display: inline-block;
+            text-align: right;
+            font-size: 20px;
+            color: #65ad65;
+            padding: 0 4px; }
+    .main .cut-map main .price-map-infos .update-time {
+      font-size: 11px;
+      color: #999;
+      font-family: "新細明體";
+      text-align: center;
+      padding: 15px; }
+
+.main .featured {
+  padding-top: 0; }
+  .main .featured main {
+    height: 430px;
+    position: relative; }
+    .main .featured main .ad-state {
+      width: 360px;
+      float: left;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); }
+      .main .featured main .ad-state .ad-slogan {
+        border-bottom: 2px solid #B4DAB5;
+        width: 100%; }
+        .main .featured main .ad-state .ad-slogan .green {
+          font-size: 27px;
+          color: #65ad65; }
+        .main .featured main .ad-state .ad-slogan .red {
+          font-size: 35px;
+          color: #f33; }
+        .main .featured main .ad-state .ad-slogan .black {
+          padding: 8px 0 22px;
+          font-size: 18px;
+          color: #333; }
+      .main .featured main .ad-state .main-city-btn {
+        padding-top: 24px;
+        width: 400px; }
+        .main .featured main .ad-state .main-city-btn li {
+          display: inline-block;
+          width: 78px;
+          height: 32px;
+          padding: 0;
+          text-align: center;
+          margin-right: 18px;
+          margin-bottom: 15px; }
+    .main .featured main .choice-community-img-box {
+      float: right;
+      width: 444px;
+      height: 368px; }
+
+.main .app {
+  padding-top: 0; }
+  .main .app main {
+    height: 515px;
+    background: url(../../imgs/buy-app.png) no-repeat;
+    position: relative; }
+    .main .app main .app-box {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%); }
+      .main .app main .app-box .slogan {
+        border-bottom: 1px solid #e5e5e5; }
+        .main .app main .app-box .slogan::before {
+          content: '“';
+          top: -35px;
+          left: -35px; }
+        .main .app main .app-box .slogan::after {
+          content: '”';
+          bottom: -50px;
+          right: -30px; }
+    .main .app main .sub-slogan {
+      color: #333;
+      font-size: 18px;
+      padding: 20px 0 70px; }
+    .main .app main .store-box {
+      width: 400px; }
+      .main .app main .store-box .store {
+        width: 188px;
+        height: 61px;
+        float: left;
+        margin-right: 10px;
+        cursor: pointer; }
+
+.main .news main {
+  font-family: "微軟正黑體","Century Gothic",sans-serif,serif; }
+  .main .news main .slogan {
+    font-size: 18px;
+    color: #65ad65;
+    margin: auto;
+    width: fit-content;
+    padding: 20px 0; }
+    .main .news main .slogan::before {
+      content: '“';
+      top: -20px;
+      left: -25px; }
+    .main .news main .slogan::after {
+      content: '”';
+      bottom: -50px;
+      right: -30px; }
+  .main .news main .news-list {
+    display: flex;
+    justify-content: space-around;
+    width: 960px;
+    margin: auto;
+    padding-bottom: 15px; }
+    .main .news main .news-list .hf {
+      position: relative;
+      height: 224px;
+      width: 224px; }
+      .main .news main .news-list .hf div {
+        height: 100%;
+        width: 100%; }
+      .main .news main .news-list .hf b {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 104px;
+        height: 104px; }
+        .main .news main .news-list .hf b i {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          height: 74px;
+          width: 74px; }
+      .main .news main .news-list .hf.news b {
+        background: url(../../imgs/ph-icon-bg.png); }
+        .main .news main .news-list .hf.news b i {
+          background: url(../../imgs/hf-icon.png) no-repeat center; }
+      .main .news main .news-list .hf.lecture b {
+        background: url(../../imgs/ph-icon-bg.png); }
+        .main .news main .news-list .hf.lecture b i {
+          background: url(../../imgs/hf-icon3.png) no-repeat center; }
+      .main .news main .news-list .hf.tv b {
+        background: url(../../imgs/ph-icon-bg.png); }
+        .main .news main .news-list .hf.tv b i {
+          background: url(../../imgs/hf-icon2.png) no-repeat center; }
+    .main .news main .news-list figcaption {
+      padding-top: 5px;
+      text-align: center;
+      color: #2e2e2e; }
+      .main .news main .news-list figcaption .title {
+        font-size: 18px; }
+      .main .news main .news-list figcaption .msg {
+        font-size: 16px;
+        margin-bottom: 15px; }
+      .main .news main .news-list figcaption button {
+        border: 1px solid #69b569;
+        color: #69b569;
+        width: 135px;
+        line-height: 35px;
+        text-align: center; }
+        .main .news main .news-list figcaption button:hover {
+          background: #69b569;
+          color: white; }
+
+.main .line header {
+  margin: 20px 0; }
+
+.main .line-img {
+  height: 104px;
+  width: 104px; }
+  .main .line-img div {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    .main .line-img div::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      opacity: 0; }
+  .main .line-img:hover div::before {
+    opacity: 1; }
+
+.main .line .buy-line div::before {
+  background: url("../../imgs/line1-qr.png"); }
+
+.main .line .news-line div::before {
+  background: url("../../imgs/line2-qr.png"); }
+
+.main .line .tv-line div::before {
+  background: url("../../imgs/line3-qr.png"); }
+
+.main .line main {
+  display: flex;
+  justify-content: space-between;
+  width: 960px;
+  margin: auto;
+  padding: 20px 0; }
+
+.main .line figure {
+  display: flex;
+  align-items: center; }
+  .main .line figure figcaption {
+    margin-left: 20px; }

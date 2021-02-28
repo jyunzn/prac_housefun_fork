@@ -1,2 +1,669 @@
 @import
-    '../layout/header';
+    '../layout/header',
+    '../helpers/component';
+
+
+.search-btn {
+    padding: 0 10px;
+    line-height: 30px;
+    background: #F63;
+    color: white;
+    font: bold 15px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+    border-radius: 3px;
+    cursor: pointer;
+    &:hover {
+        background: #E40;
+    }
+}
+
+.main {
+    .banner {
+        background: url(../../imgs/banner.jpg) no-repeat center;
+        height: 360px;
+        position: relative;
+        z-index: 1;
+        .content-box {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .title {
+            color: white;
+            height: 40px;
+            font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
+            margin-bottom: 10px;
+            h2 {
+                float: left;
+                
+                font-size: 40px;
+                line-height: 40px;
+                border-right: 1px solid white;
+                padding-right: 10px;
+            }
+            span {
+                float: left;
+                display: flex;
+                height: 100%;
+                flex-direction: column-reverse;
+                padding-left: 10px;
+            }
+        }
+        .search-bg {
+            height: 92px;
+            width: 906px;
+            background: rgba(255, 255, 255, .6);
+            border-radius: 5px;
+        }
+
+        .search {
+            display: flex;
+            padding: 30px 20px;
+            .select-box {
+                margin-right: 5px;
+            }
+            .input {
+                display: inline-block;
+                border: 1px solid #d9d9d9;
+                border-radius: 3px;
+                flex: 1;
+                margin-right: 5px;
+                input {
+                    width: 100%;
+                    border: 0;
+                    padding: 5px 10px;
+                    color: #333;
+                    font-size: 13px;
+                    line-height: 20px;
+                    outline-color: #6A6;
+                    border-radius: 3px;
+                }
+
+            }
+        }
+    }
+}
+
+.main .banner .select-area {
+    visibility: hidden;
+    width: 615px;
+    background: white;
+    font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
+    border: 1px solid #CCC;
+    padding-bottom: 10px;
+    overflow: hidden;
+    font-size: 13px;
+    &-tip-box {
+        padding: 15px 25px;
+        border-bottom: 1px solid #CCC;
+    }
+
+    &-main-box {
+        
+        width: 9999px;
+        .option {
+            line-height: 25px;
+            display: inline-block;
+            padding: 0 10px 0 30px;
+            position: relative;
+            width: 82px;
+            margin: 5px;
+            input {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+            }
+
+            i {
+                height: 20px;
+                width: 20px;
+                left: 5px;
+                position: absolute;
+                background: white;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                svg {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            &.select {
+                border: 1px solid #ccc;
+                border-radius: 3px;
+
+                i {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .city, .area {
+            transition: all ease .3s;
+            float: left;
+            width: 595px;
+            padding: 10px;
+            margin: 10px;
+        }
+    }
+
+    &-btn {
+        text-align: center;
+        padding: 10px 0 15px 0;
+    }
+
+    &-selected-box {
+        padding: 10px 20px;
+        font-size: 0;
+        background: #f8f8f8;
+        margin: 0 10px;
+        padding: 10px;
+        .tag {
+            padding: 0 28px 0 8px;
+            border: 1px solid #666;
+            font: 13px/27px "Century Gothic",sans-serif,serif;
+            position: relative;
+            color: #666;
+            margin: -1px 0 0 -1px;
+            background: #fff;
+            
+
+            &::after {
+                content: 'x';
+                position: absolute;
+                top: 50%;
+                right: 5px;
+                transform: translateY(-50%);
+            }
+            &:hover {
+                background: #f8f8f8;
+            }
+        }
+    }
+}
+
+
+// section 公共樣式
+.main .main-public {
+    font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
+    header {
+        text-align: center;
+        h3 {
+            position: relative;
+            span {
+                display: block;
+                line-height: 34px;
+            }
+            .title {
+                font-size: 34px;
+                color: #65ad65;
+                background-color: white;
+                width: fit-content;
+                margin: auto;
+            }
+            .subtitle {
+                
+                font-size: 18px;
+                color: #666;
+            }
+            &::after {
+                content: '';
+                display: block;
+                border-top: 5px dashed rgba(102, 102, 102, .4);
+                position: absolute;
+                top: 17px;
+                width: 100%;
+                z-index: -1;
+            }
+        }   
+    }
+}
+
+// 公共組建，兩顆痘痘
+.slogan {
+    color: #65ad65;
+    font-size: 26px;
+    padding-bottom: 20px;
+    position: relative;
+    width: fit-content;
+
+    &::before,
+    &::after {
+        position: absolute;
+        font-size: 78px;
+    }
+    &::before {
+        content: '“';
+    }
+    &::after {
+        content: '”'; 
+    }
+}
+
+.main-city-btn {
+    li {
+        color: white;
+        background: #b8b8b8;
+        
+        line-height: 30px;
+        padding: 0 20px;
+        border-radius: 20px;
+
+        cursor: pointer;
+    }
+}
+
+// 實境找房
+.main .reality {
+    padding-top: 35px;
+    main {
+        .main-city {
+            &-select, &-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &-select {
+                padding-top: 20px;
+                li {
+                    margin-left: 10px;
+                }
+            }
+
+            &-btn li:hover {
+                transition: all ease .1s;
+                background: #f63;
+            }
+        }
+    }
+    main {
+        .object {
+            display: flex;
+            padding: 40px 0 60px;
+            figure {
+                margin-right: 11px;
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .img-box {
+                    margin-bottom: 10px;
+                }
+
+                figcaption {
+                    .top {
+                        color: #666;
+                        font-size: 14px;
+                    }
+                    .bottom {
+                        color: #333;
+                        font-size: 18px;
+                        display: flex;
+                        justify-content: space-between;
+                        .name {
+                            // 超出指定，顯示點點
+                            max-width: 140px;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                        .money {
+                            .number {
+                                color: #f33;
+                                font-size: 22px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 降價地圖
+.main .cut-map {
+    main {
+        margin: 20px 0;
+        > div {
+            float: left;
+        }
+        .price-map {
+            &-imgs-box {
+                height: 355px;
+                width: 530px;
+                margin-right: 60px;
+            }
+
+            &-infos {
+                width: 360px;
+                padding-top: 25px;
+                .select-area {
+                    width: 360px;
+                    height: 33px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    select {
+                        margin-right: 3px;
+                        padding: 4px 4px 4px 10px;
+                        font: bold 15px/30px "微軟正黑體","Century Gothic",sans-serif,serif;
+                        min-width: 90px;
+                        outline: none;
+                        height: 30px;
+                        border: 1px solid #CCC;
+                        border-radius: 3px;
+
+                        cursor: pointer;
+                    }
+                    .ava {
+                        flex: 1;
+                        margin-left: 4px;
+                        span {
+                            color: #f33;
+                            font-size: 35px;
+                        }
+                    }
+                }
+                .detail-info {
+                    border-top: 2px solid #b4dab5;
+                    li {
+                        display: flex;
+                        padding: 10px 0;
+                        color: #333;
+                        border-bottom: 1px solid #e5e5e5;
+                        .price-field {
+                            &-range {
+                                flex: 4;
+                            }
+                            &-number {
+                                flex: 3;
+                            }
+                        }
+                        .count {
+                            flex: 2;
+                            span {
+                                width: 30px;
+                                display: inline-block;
+                                text-align: right;
+                                font-size: 20px;
+                                color: #65ad65;
+                                padding: 0 4px;
+                            }
+                        }
+                    }
+                }
+                .update-time {
+                    font-size: 11px;
+                    color: #999;
+                    font-family: "新細明體";
+                    text-align: center;
+                    padding: 15px;
+                }
+            }
+        }
+    }
+}
+
+
+// 精選
+.main .featured {
+    padding-top: 0;
+    main {
+        height: 430px;
+        position: relative;
+        .ad-state {
+            width: 360px;
+            float: left;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            .ad-slogan {
+                border-bottom: 2px solid #B4DAB5;
+                width: 100%;
+                .green {
+                    font-size: 27px;
+                    color: #65ad65;
+                }
+                .red {
+                    font-size: 35px;
+                    color: #f33;
+                }
+                .black {
+                    padding: 8px 0 22px;
+                    font-size: 18px;
+                    color: #333;
+                }
+
+            }
+            .main-city-btn {
+                padding-top: 24px;
+                width: 400px;
+                
+                li {
+                    display: inline-block;
+                    width: 78px;
+                    height: 32px;
+                    padding: 0;
+                    text-align: center;
+                    margin-right: 18px;
+                    margin-bottom: 15px;
+                }
+
+            }
+        }
+        .choice-community-img-box {
+            float: right;
+            width: 444px;
+            height: 368px;
+        }
+    }
+}
+
+// APP
+.main .app  {
+    padding-top: 0;
+    main {
+        height: 515px;
+        background: url(../../imgs/buy-app.png) no-repeat;
+        position: relative;
+        .app-box {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .slogan {
+                border-bottom: 1px solid #e5e5e5;
+                &::before {
+                    content: '“';
+                    top: -35px;
+                    left: -35px;
+                }
+                &::after {
+                    content: '”';
+                    bottom: -50px;
+                    right: -30px; 
+                }
+            }
+        }
+        .sub-slogan {
+            color: #333;
+            font-size: 18px;
+            padding: 20px 0 70px;
+        }
+
+        .store-box {
+            width: 400px;
+            .store {
+                width: 188px;
+                height: 61px;
+                float: left;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.main .news {
+    main {
+        font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
+        .slogan {
+            font-size: 18px;
+            color: #65ad65;
+            margin: auto;
+            width: fit-content;
+            padding: 20px 0;
+
+            &::before {
+                content: '“';
+                top: -20px;
+                left: -25px;
+            }
+            &::after {
+                content: '”';
+                bottom: -50px;
+                right: -30px; 
+            }
+        }
+
+        .news-list {
+            display: flex;
+            justify-content: space-around;
+            width: 960px;
+            margin: auto;
+            padding-bottom: 15px;
+            .hf {
+                position: relative;
+                height: 224px;
+                width: 224px;
+                div {
+                    height: 100%;
+                    width: 100%;
+                }
+                b {
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    width: 104px;
+                    height: 104px;
+                    i {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        height: 74px;
+                        width: 74px;
+                    }
+                }
+                &.news b {
+                    background: url(../../imgs/ph-icon-bg.png);
+                    i {
+                        background: url(../../imgs/hf-icon.png) no-repeat center;
+                    }
+                }
+                &.lecture b {
+                    background: url(../../imgs/ph-icon-bg.png);
+                    i {
+                        background: url(../../imgs/hf-icon3.png) no-repeat center;
+                    }
+                }
+                &.tv b {
+                    background: url(../../imgs/ph-icon-bg.png);
+                    i {
+                        background: url(../../imgs/hf-icon2.png) no-repeat center;
+                    }
+                }
+            }
+
+            figcaption {
+                padding-top: 5px;
+                text-align: center;
+                color: #2e2e2e;
+                .title {
+                    font-size: 18px;
+                }
+                .msg {
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                }
+
+                button {
+                    border: 1px solid #69b569;
+                    color: #69b569;
+                    width: 135px;
+                    line-height: 35px;
+                    text-align: center;
+
+                    &:hover {
+                        background: #69b569;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.main .line {
+    header {
+        margin: 20px 0;
+    }
+    &-img {
+        height: 104px;
+        width: 104px;
+        div {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            &::before {
+                content: '';
+                display: block;
+                
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                opacity: 0;
+            }
+        }
+        &:hover div::before {
+            opacity: 1;
+        }
+    }
+    .buy-line div::before {
+        background: url('../../imgs/line1-qr.png');
+    }
+    .news-line div::before {
+        background: url('../../imgs/line2-qr.png');
+    }
+    .tv-line div::before {
+        background: url('../../imgs/line3-qr.png');
+    }
+
+    main {
+        display: flex;
+        justify-content: space-between;
+        width: 960px;
+        margin: auto;
+        padding: 20px 0;
+    }
+    figure {
+        display: flex;
+        align-items: center;
+        figcaption {
+            margin-left: 20px;
+        }
+    }
+}
