@@ -3,6 +3,7 @@
     const oAreaBtn  = document.querySelector('#area-btn');
     const oHouseBtn = document.querySelector('#house-btn');
     const oPriceBtn = document.querySelector('#price-btn');
+    const oselectArea = document.querySelector('.select-area');
 
     const oCityOptions = document.querySelector('#city-options');
     const oAreaOptions = document.querySelector('#area-options');
@@ -14,11 +15,16 @@
     aCityOption.forEach(dom => dom.addEventListener('click', handleCityOptions));
 
 
+    let selectAreaHiddenStatus = true;
+    // 1: city, 2: area
+    let curShowOptions;
     function handleCityBtn() {
         _moveAreaOptions(false);
+        oselectArea.style.visibility = 'unset';
     }
     function handleAreaBtn() {
         _moveAreaOptions(true);
+        oselectArea.style.visibility = 'unset';
     }
     function handleCityOptions() {
         _moveAreaOptions(true);

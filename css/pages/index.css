@@ -391,6 +391,42 @@
   width: 100%;
   z-index: 9; }
 
+.footer {
+  padding-top: 30px;
+  background: #f8f8f8; }
+  .footer .ad {
+    background: url(../../imgs/17690A52BFE.gif);
+    height: 90px;
+    margin-bottom: 32.5px; }
+    .footer .ad a {
+      height: 100%;
+      width: 100%;
+      display: block; }
+  .footer .link-area {
+    margin-bottom: 40px; }
+    .footer .link-area .row {
+      font-size: 12px;
+      border-left: 1px solid #e2e2e2;
+      padding-left: 20px;
+      float: left;
+      width: calc(100% / 6); }
+      .footer .link-area .row dl, .footer .link-area .row ul {
+        margin-bottom: 25px; }
+      .footer .link-area .row dt {
+        color: #333;
+        height: 27px; }
+      .footer .link-area .row a, .footer .link-area .row li, .footer .link-area .row dd {
+        color: #666;
+        height: 27px; }
+      .footer .link-area .row a:hover {
+        color: #6ab66a; }
+  .footer .license {
+    font-size: 12px;
+    font-family: '新細明體';
+    color: #666; }
+    .footer .license p {
+      height: 27px; }
+
 .search-btn {
   padding: 0 10px;
   line-height: 30px;
@@ -467,43 +503,77 @@
   .main .banner .select-area-tip-box {
     padding: 15px 25px;
     border-bottom: 1px solid #CCC; }
-  .main .banner .select-area-main-box {
+  .main .banner .select-area-main-box .option {
+    line-height: 25px;
+    display: inline-block;
+    padding: 0 10px 0 30px;
+    position: relative;
+    width: 82px;
+    margin: 5px; }
+    .main .banner .select-area-main-box .option .input {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%); }
+    .main .banner .select-area-main-box .option .check-icon {
+      height: 20px;
+      width: 20px;
+      left: 5px;
+      position: absolute;
+      background: white;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0; }
+      .main .banner .select-area-main-box .option .check-icon svg {
+        height: 100%;
+        width: 100%; }
+  .main .banner .select-area-main-box.addr {
     width: 9999px; }
-    .main .banner .select-area-main-box .option {
-      line-height: 25px;
-      display: inline-block;
-      padding: 0 10px 0 30px;
-      position: relative;
-      width: 82px;
-      margin: 5px; }
-      .main .banner .select-area-main-box .option input {
-        position: absolute;
-        top: 50%;
-        left: 5px;
-        transform: translateY(-50%); }
-      .main .banner .select-area-main-box .option i {
-        height: 20px;
-        width: 20px;
-        left: 5px;
-        position: absolute;
-        background: white;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 0; }
-        .main .banner .select-area-main-box .option i svg {
-          height: 100%;
-          width: 100%; }
-      .main .banner .select-area-main-box .option.select {
-        border: 1px solid #ccc;
-        border-radius: 3px; }
-        .main .banner .select-area-main-box .option.select i {
-          opacity: 1; }
-    .main .banner .select-area-main-box .city, .main .banner .select-area-main-box .area {
+    .main .banner .select-area-main-box.addr .city, .main .banner .select-area-main-box.addr .area {
       transition: all ease .3s;
       float: left;
       width: 595px;
       padding: 10px;
       margin: 10px; }
+    .main .banner .select-area-main-box.addr .select {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      color: #6A6; }
+      .main .banner .select-area-main-box.addr .select .check-icon {
+        opacity: 1; }
+  .main .banner .select-area-main-box.purposes {
+    padding: 10px;
+    margin: 10px; }
+    .main .banner .select-area-main-box.purposes .select {
+      color: #6A6; }
+      .main .banner .select-area-main-box.purposes .select .check-icon {
+        opacity: 1; }
+  .main .banner .select-area-main-box.price-range {
+    padding: 10px;
+    margin: 10px; }
+    .main .banner .select-area-main-box.price-range .option {
+      width: auto;
+      position: relative; }
+      .main .banner .select-area-main-box.price-range .option .input {
+        height: 15px;
+        width: 15px;
+        display: block;
+        border: 1px solid #666;
+        border-radius: 50%;
+        position: absolute; }
+      .main .banner .select-area-main-box.price-range .option .circle-icon {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background: #65ad65;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0; }
+      .main .banner .select-area-main-box.price-range .option.select .circle-icon {
+        opacity: 1; }
   .main .banner .select-area-btn {
     text-align: center;
     padding: 10px 0 15px 0; }
@@ -679,6 +749,24 @@
       text-align: center;
       padding: 15px; }
 
+@keyframes finger {
+  0% {
+    visibility: hidden; }
+  10% {
+    visibility: unset; }
+  15% {
+    visibility: hidden; } }
+
+@keyframes city-bg-color {
+  0% {
+    background: #b8b8b8; }
+  2% {
+    background: #65ad65; }
+  10% {
+    background: #65ad65; }
+  15% {
+    background: #b8b8b8; } }
+
 .main .featured {
   padding-top: 0; }
   .main .featured main {
@@ -713,7 +801,51 @@
           padding: 0;
           text-align: center;
           margin-right: 18px;
-          margin-bottom: 15px; }
+          margin-bottom: 15px;
+          position: relative; }
+          .main .featured main .ad-state .main-city-btn li::after {
+            content: '';
+            display: block;
+            width: 51px;
+            height: 52px;
+            background: url(../../imgs/choice-finger.png) no-repeat center;
+            position: absolute;
+            bottom: -40px;
+            right: -30px;
+            z-index: 9;
+            visibility: hidden; }
+        .main .featured main .ad-state .main-city-btn .hover {
+          background: #65ad65; }
+          .main .featured main .ad-state .main-city-btn .hover::after {
+            visibility: unset; }
+      .main .featured main .ad-state .ani li {
+        animation: city-bg-color 19s linear infinite; }
+        .main .featured main .ad-state .ani li::after {
+          animation: finger 18s linear infinite; }
+        .main .featured main .ad-state .ani li.ani1 {
+          animation-delay: 0s; }
+        .main .featured main .ad-state .ani li.ani1::after {
+          animation-delay: 0s; }
+        .main .featured main .ad-state .ani li.ani2 {
+          animation-delay: 3s; }
+        .main .featured main .ad-state .ani li.ani2::after {
+          animation-delay: 3s; }
+        .main .featured main .ad-state .ani li.ani3 {
+          animation-delay: 6s; }
+        .main .featured main .ad-state .ani li.ani3::after {
+          animation-delay: 6s; }
+        .main .featured main .ad-state .ani li.ani4 {
+          animation-delay: 9s; }
+        .main .featured main .ad-state .ani li.ani4::after {
+          animation-delay: 9s; }
+        .main .featured main .ad-state .ani li.ani5 {
+          animation-delay: 12s; }
+        .main .featured main .ad-state .ani li.ani5::after {
+          animation-delay: 12s; }
+        .main .featured main .ad-state .ani li.ani6 {
+          animation-delay: 15s; }
+        .main .featured main .ad-state .ani li.ani6::after {
+          animation-delay: 15s; }
     .main .featured main .choice-community-img-box {
       float: right;
       width: 444px;

@@ -1,0 +1,48 @@
+.footer {
+    padding-top: 30px;
+    background: #f8f8f8;
+    .ad {
+        background: url(../../imgs/17690A52BFE.gif);
+        height: 90px;
+        margin-bottom: 32.5px;
+        a {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .link-area {
+        margin-bottom: 40px;
+        .row {
+            font-size: 12px;
+            border-left: 1px solid #e2e2e2;
+            padding-left: 20px;
+            float: left;
+            width: calc(100% / 6);
+            dl, ul {
+                margin-bottom: 25px;
+            }
+            dt {
+                color: #333;
+                height: 27px;
+            }
+            a, li, dd {
+                color: #666;
+                height: 27px;
+            }
+            a:hover {
+                color: #6ab66a;
+            }
+        }
+    }
+
+    .license {
+        font-size: 12px;
+        font-family: '新細明體';
+        color: #666;
+        p {
+            height: 27px;
+        }
+    }
+}
