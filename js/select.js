@@ -57,6 +57,10 @@
     oTagPriceBtn.addEventListener('click', handleTagPriceBtn);
     oAddrPrev.addEventListener('click', handleAddrPrevBtn);
 
+    // oAddr.addEventListener('wheel', function (ev) {
+    //     console.log(ev.preventDefault());
+    // });
+
     // 最上面四顆按鈕的點擊事件處理
     function handleCityBtn(ev) {
         moveAreaOptions(false);
