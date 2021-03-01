@@ -28,6 +28,7 @@
         
         &-item {
             padding: 0 10px;
+            position: relative;
             a {
                 display: block;
             }
@@ -59,6 +60,21 @@
                     }
                 }
                 
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                height: 10px;
+                width: 1px;
+                background: #ccc;
+                position: absolute;
+                right: 0;
+                top: 5px;
+                
+            }
+            &:last-child::after {
+                display: none;
             }
         }
     }
@@ -179,6 +195,7 @@
                     width: 100%;
                     transform: translateY(100%);
                     bottom: 0;
+                    font: 14px/1.6em "微軟正黑體","Century Gothic",sans-serif,serif;
 
                     li:hover {
                         color: map-get($menu-color, 'more');

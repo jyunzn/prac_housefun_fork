@@ -12,9 +12,6 @@
     // 選擇區域的兩個框
     const oCityOptions = document.querySelector('#city-options');
     const oAreaOptions = document.querySelector('#area-options');
-    // console.log(getComputedStyle(oAreaOptions, '::before').onclick = function () {
-    //     console.log(123);
-    // });
 
     // 生成所有城市的選項
     generCityList();
@@ -42,7 +39,6 @@
     let oPriceInputN1 = oPriceRange.querySelector('.price-input-box .n1');
     let oPriceInputN2 = oPriceRange.querySelector('.price-input-box .n2');
     let oAddrPrev = oAddr.querySelector('.prev');
-    console.log(oAddrPrev)
 
 
     oCityBtn.addEventListener('click', handleCityBtn);
@@ -147,7 +143,6 @@
             moveAreaOptions(false);
         }
         
-        console.log(selectAreas, selectCount);
         handleDisableClass();
         ev.cancelBubble = true;
     }
@@ -182,8 +177,6 @@
             curSelectCity = '';
             this.classList.remove('select');
             
-            console.log(tmp);
-
             let tags = Array.from(oTagAreas.children).filter(dom => dom.innerText.trim().startsWith(tmp));
             tags.forEach(tag => handleTagDel(tag));
         } else {
@@ -209,7 +202,6 @@
             this.classList.add('select');
         } 
 
-        console.log(selectAreas, selectCount);
         handleDisableClass();
         // 處理第一欄位的文字
         handleTips();
@@ -254,7 +246,6 @@
 
     // 區選項
     function handleAreaOptions(ev) {
-        
         let seletedArea = this.innerText.trim();
 
         // 移除按鈕
@@ -271,7 +262,6 @@
                 addAreaTag(seletedArea);
             };
         }
-        console.log(selectAreas, selectCount);
         handleDisableClass();
         ev.cancelBubble = true;
     }
@@ -296,7 +286,6 @@
     function removeArea(city, area) {
         
         let curCityInfos = selectAreas[city];
-        console.log(curCityInfos)
         let index = curCityInfos.findIndex(v => v == area);
         index >= 0 && curCityInfos.splice(index, 1);
 
@@ -315,7 +304,6 @@
         } else {
             oTagAreas.appendChild(genAreaTag(area));
         }
-        console.log(selectAreas[curSelectCity], area);
     }
     function genAreaTag(area) {
         const oBtn = document.createElement('button');
@@ -334,7 +322,6 @@
     // 用途選項
     let selectPurposes = [];
     function handlePurposesOptions(ev) {
-        console.dir(this.innerText);
 
         let selectItem = this.innerText.trim();
         // 刪除選項
@@ -391,8 +378,6 @@
             oTagPriceBtn.textContent = handlePriceValue([n1, n2]);
             selectPriceRange = oTagPriceBtn.textContent;
         }
-
-        console.log(selectPriceRange);
         ev.cancelBubble = true;
     }
 
@@ -467,8 +452,7 @@
 
     // 點擊除了顯示匡的其他地方時，隱藏顯示匡
     function handleDocumentClick(ev) {
-        !oselectArea.contains(ev.target) && (oselectArea.style.visibility = 'hidden');
-        aSearch.forEach(dom => dom.classList.remove('show'))
+        !oselectArea.contains(ev.target) && (oselectArea.style.visibility = 'hidden') && aSearch.forEach(dom => dom.classList.remove('show'));
     }
 
     /**
