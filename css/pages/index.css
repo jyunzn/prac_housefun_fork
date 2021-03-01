@@ -492,7 +492,6 @@
         border-radius: 3px; }
 
 .main .banner .select-area {
-  visibility: hidden;
   width: 615px;
   background: white;
   font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
@@ -621,6 +620,8 @@
     background: #f8f8f8;
     margin: 0 10px;
     padding: 10px; }
+    .main .banner .select-area-selected-box .selecting {
+      display: inline; }
     .main .banner .select-area-selected-box .tag {
       padding: 0 28px 0 8px;
       border: 1px solid #666;

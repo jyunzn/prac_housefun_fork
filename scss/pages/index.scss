@@ -86,7 +86,7 @@
 }
 
 .main .banner .select-area {
-    visibility: hidden;
+    // visibility: hidden;
     width: 615px;
     background: white;
     font-family: "微軟正黑體","Century Gothic",sans-serif,serif;
@@ -263,6 +263,9 @@
         background: #f8f8f8;
         margin: 0 10px;
         padding: 10px;
+        .selecting {
+            display: inline;
+        }
         .tag {
             padding: 0 28px 0 8px;
             border: 1px solid #666;
@@ -271,7 +274,6 @@
             color: #666;
             margin: -1px 0 0 -1px;
             background: #fff;
-            
 
             &::after {
                 content: 'x';
