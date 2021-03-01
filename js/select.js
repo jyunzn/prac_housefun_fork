@@ -1,4 +1,5 @@
 ;(function () {
+    const aSearch = document.querySelectorAll('.banner .search .select-box');
     // 上面四顆按鈕
     const oCityBtn  = document.querySelector('#city-btn');
     const oAreaBtn  = document.querySelector('#area-btn');
@@ -11,7 +12,9 @@
     // 選擇區域的兩個框
     const oCityOptions = document.querySelector('#city-options');
     const oAreaOptions = document.querySelector('#area-options');
-
+    // console.log(getComputedStyle(oAreaOptions, '::before').onclick = function () {
+    //     console.log(123);
+    // });
 
     // 生成所有城市的選項
     generCityList();
@@ -38,6 +41,8 @@
     let oSelectAreaTipBox = oselectArea.querySelector('.select-area-tip-box'); // 小提示框
     let oPriceInputN1 = oPriceRange.querySelector('.price-input-box .n1');
     let oPriceInputN2 = oPriceRange.querySelector('.price-input-box .n2');
+    let oAddrPrev = oAddr.querySelector('.prev');
+    console.log(oAddrPrev)
 
 
     oCityBtn.addEventListener('click', handleCityBtn);
@@ -54,19 +59,15 @@
     oPriceInputN1.addEventListener('blur', handlePriceInputBlur);
     oPriceInputN2.addEventListener('blur', handlePriceInputBlur);
     oTagPriceBtn.addEventListener('click', handleTagPriceBtn);
+    oAddrPrev.addEventListener('click', handleAddrPrevBtn);
 
     // 最上面四顆按鈕的點擊事件處理
     function handleCityBtn(ev) {
-        
-        handleDisplayArea(oAddr, [oPurposes, oPriceRange]);
         moveAreaOptions(false);
         oselectArea.style.visibility = 'unset';
         ev.cancelBubble = true;
-        
     }
     function handleAreaBtn(ev) {
-        handleDisplayArea(oAddr, [oPurposes, oPriceRange]);
-
         // 如果當前沒有選中任何城市，不給去選成區域
         if (curSelectCity == '') {
             moveAreaOptions(false);
@@ -78,21 +79,23 @@
         ev.cancelBubble = true;
     }
     function handleHouseBtn(ev) {
-        handleDisplayArea(oPurposes, [oAddr, oPriceRange]);
+        handleDisplayArea(oPurposes, [oAddr, oPriceRange], this);
 
         oselectArea.style.visibility = 'unset';
         ev.cancelBubble = true;
     }
     function handlePriceBtn(ev) {
-        handleDisplayArea(oPriceRange, [oAddr, oPurposes]);
+        handleDisplayArea(oPriceRange, [oAddr, oPurposes], this);
 
         oselectArea.style.visibility = 'unset';
         ev.cancelBubble = true;
     }
 
-    function handleDisplayArea(displayDom, hiddenDoms) {
+    function handleDisplayArea(displayDom, hiddenDoms, _this) {
         hiddenDoms.forEach(dom => (dom.style.display = 'none'));
         displayDom.style.display = 'block';
+        aSearch.forEach(dom => dom.classList.remove('show'));
+        _this.classList.add('show');
     }
 
     function handleDisableClass() {
@@ -323,6 +326,10 @@
         return oBtn;
     }
 
+    function handleAddrPrevBtn() {
+        moveAreaOptions(false);
+    }
+
 
     // 用途選項
     let selectPurposes = [];
@@ -461,6 +468,7 @@
     // 點擊除了顯示匡的其他地方時，隱藏顯示匡
     function handleDocumentClick(ev) {
         !oselectArea.contains(ev.target) && (oselectArea.style.visibility = 'hidden');
+        aSearch.forEach(dom => dom.classList.remove('show'))
     }
 
     /**
@@ -471,9 +479,13 @@
         if (left) {
             oCityOptions.style.transform = 'translateX(calc(-100% + -20px))';
             oAreaOptions.style.transform = 'translateX(calc(-100% + -20px))';
+            handleDisplayArea(oAddr, [oPurposes, oPriceRange], oAreaBtn);
+            oAddr.classList.add('prev-show');
         } else {
             oCityOptions.style.transform = 'unset';
             oAreaOptions.style.transform = 'unset';
+            handleDisplayArea(oAddr, [oPurposes, oPriceRange], oCityBtn);
+            oAddr.classList.remove('prev-show');
         }
     }
 

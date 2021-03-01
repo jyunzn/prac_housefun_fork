@@ -472,9 +472,25 @@
     border-radius: 5px; }
   .main .banner .search {
     display: flex;
-    padding: 30px 20px; }
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1; }
     .main .banner .search .select-box {
-      margin-right: 5px; }
+      margin-right: 5px;
+      position: relative; }
+      .main .banner .search .select-box .mask {
+        content: '';
+        display: none;
+        width: calc(100% + 2px);
+        height: 20px;
+        background: white;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        position: absolute;
+        bottom: -20px;
+        left: -1px; }
+      .main .banner .search .select-box.show .mask {
+        display: block; }
     .main .banner .search .input {
       display: inline-block;
       border: 1px solid #d9d9d9;
@@ -500,17 +516,9 @@
   padding-bottom: 10px;
   overflow: hidden;
   font-size: 13px;
-  position: relative; }
-  .main .banner .select-area .tmp {
-    position: absolute;
-    right: 0;
-    top: 0;
-    background: yellow;
-    vertical-align: bottom;
-    line-height: 30px; }
-    .main .banner .select-area .tmp img {
-      height: 30px;
-      width: 30px; }
+  position: relative;
+  left: 20px;
+  top: -12px; }
   .main .banner .select-area-tip-box {
     padding: 15px 25px;
     border-bottom: 1px solid #CCC; }
@@ -556,7 +564,8 @@
         height: 100%;
         width: 100%; }
   .main .banner .select-area-main-box.addr {
-    width: 9999px; }
+    width: 9999px;
+    position: relative; }
     .main .banner .select-area-main-box.addr .city, .main .banner .select-area-main-box.addr .area {
       transition: transform ease .3s;
       float: left;
@@ -574,6 +583,23 @@
         opacity: 1; }
       .main .banner .select-area-main-box.addr .select:hover .del-icon {
         display: block; }
+    .main .banner .select-area-main-box.addr .area {
+      padding-left: 45px;
+      overflow: auto;
+      height: 180px; }
+    .main .banner .select-area-main-box.addr .prev {
+      display: none;
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      background: url(../../imgs/previous.svg) no-repeat center;
+      background-size: contain;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer; }
+    .main .banner .select-area-main-box.addr.prev-show .prev {
+      display: block; }
   .main .banner .select-area-main-box.purposes {
     padding: 10px;
     margin: 10px; }
