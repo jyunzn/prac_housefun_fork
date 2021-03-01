@@ -261,7 +261,7 @@
         } else {
             // 最多三個，但是如果當前的城市還沒選區的話可以放行
             if (selectCount >= 3 && selectAreas[curSelectCity].length !== 0) return;
-            if (addArea(seletedArea)) {
+            if (addArea(curSelectCity, seletedArea)) {
                 this.classList.add('select');
                 addAreaTag(seletedArea);
             };
@@ -271,16 +271,20 @@
         ev.cancelBubble = true;
     }
 
-    function addArea(area) {
+    function addArea(city, area) {
         
+        let cityInfos = selectAreas[city];
         // 如果該城市再已選的數據中沒有
-        if (!selectAreas[curSelectCity]) return false;
+        if (!cityInfos) return false;
+
+        // 如果該區域已經添加過，就不給加
+        if (cityInfos.includes(area)) return false;
 
         // 如果是第一次選地區，那麼會把城市那個選擇直接往下拼，城市那個在 addCity 加過了
-        if (selectAreas[curSelectCity].length !== 0) {
+        if (cityInfos.length !== 0) {
             selectCount++
         }
-        selectAreas[curSelectCity].push(area);
+        cityInfos.push(area);
         return true;
     }
 
