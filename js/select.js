@@ -111,26 +111,26 @@
 
     function handleTagClick(ev) {
         if (this.dataset.city === '0') {
-            let [city, area] = this.innerText.split('-');
+            let [city, area] = this.innerText.trim().split('-');
 
             // 刪除指定區域
             removeArea(city, area);
 
             // 如果刪除的城市是現在選中的區域城市，那麼要把那個類刪掉
             if (curSelectCity == city) {
-                Array.from(aAreaOption).find(dom => dom.innerText == area).classList.remove('select');
+                Array.from(aAreaOption).find(dom => dom.innerText.trim() == area).classList.remove('select');
             }
 
             // 刪除按鈕本身
             handleTagDel(this, city)
         } else {
-            let str = this.innerText;
+            let str = this.innerText.trim();
 
             // 刪除城市數據
             removeCity(str);
             
             // 刪除城市的選擇類
-            Array.from(aCityOption).find(dom => dom.innerText == str).classList.remove('select');
+            Array.from(aCityOption).find(dom => dom.innerText.trim() == str).classList.remove('select');
             
             // 看看還有沒有選項，要處理小提示
             handleTips();
@@ -180,7 +180,7 @@
             
             console.log(tmp);
 
-            let tags = Array.from(oTagAreas.children).filter(dom => dom.innerText.startsWith(tmp));
+            let tags = Array.from(oTagAreas.children).filter(dom => dom.innerText.trim().startsWith(tmp));
             tags.forEach(tag => handleTagDel(tag));
         } else {
             let tmp = this.innerText.trim();
@@ -256,7 +256,7 @@
         if (ev.target.dataset.remove) {
             removeArea(curSelectCity, seletedArea);
             this.classList.remove('select');
-            let tag = Array.from(oTagAreas.children).find(dom => dom.innerText == `${curSelectCity}-${seletedArea}`);
+            let tag = Array.from(oTagAreas.children).find(dom => dom.innerText.trim() == `${curSelectCity}-${seletedArea}`);
             handleTagDel(tag, curSelectCity);
         } else {
             // 最多三個，但是如果當前的城市還沒選區的話可以放行
@@ -285,7 +285,9 @@
     }
 
     function removeArea(city, area) {
+        
         let curCityInfos = selectAreas[city];
+        console.log(curCityInfos)
         let index = curCityInfos.findIndex(v => v == area);
         index >= 0 && curCityInfos.splice(index, 1);
 
@@ -321,9 +323,9 @@
     function handlePurposesOptions(ev) {
         console.dir(this.innerText);
         if (Array.from(this.classList).includes('select')) {
-            selectPurposes.includes && selectPurposes.splice(selectPurposes.findIndex(item => item == this.innerText), 1);
+            selectPurposes.includes && selectPurposes.splice(selectPurposes.findIndex(item => item == this.innerText.trim()), 1);
         } else {
-            selectPurposes.push(this.innerText);
+            selectPurposes.push(this.innerText.trim());
         }
         this.classList.toggle('select');
         ev.cancelBubble = true;
