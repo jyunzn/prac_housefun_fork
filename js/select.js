@@ -31,7 +31,7 @@
     // 最下面的標籤
     let oTagAreas = document.querySelector('.select-area .selecting-areas');
     let oTagPurposes = document.querySelector('.select-area .selecting-purposes');
-    let oTagPrice = document.querySelector('.select-area .selecting-price');
+    let oTagPriceBtn = document.querySelector('.select-area .selecting-price button');
 
     
     // 其他
@@ -53,6 +53,7 @@
     document.addEventListener('click', handleDocumentClick);
     oPriceInputN1.addEventListener('blur', handlePriceInputBlur);
     oPriceInputN2.addEventListener('blur', handlePriceInputBlur);
+    oTagPriceBtn.addEventListener('click', handleTagPriceBtn);
 
     // 最上面四顆按鈕的點擊事件處理
     function handleCityBtn(ev) {
@@ -109,7 +110,7 @@
         }
     }
 
-    function handleTagClick(ev) {
+    function handleCityTagClick(ev) {
         if (this.dataset.city === '0') {
             let [city, area] = this.innerText.trim().split('-');
 
@@ -167,7 +168,7 @@
     let selectAreas = {};
     let curSelectCity = '';
     let selectCount = 0;
-    // [每個選項的點擊事件處理] //
+    // [每個選項的點擊事件處理]
 
     // 城市選項
     function handleCityOptions(ev) {
@@ -191,6 +192,7 @@
                     curSelectCity = tmp;
                     generAreaList(my_city[curSelectCity]);
                     moveAreaOptions(true);
+                    handleDisableClass();
                 }
                 return ;
             }
@@ -242,7 +244,7 @@
         oBtn.classList.add('tag');
         oBtn.setAttribute('data-city', curSelectCity);
         oBtn.textContent = curSelectCity;
-        oBtn.addEventListener('click', handleTagClick);
+        oBtn.addEventListener('click', handleCityTagClick);
         return oBtn;
     }
 
@@ -317,7 +319,7 @@
         oBtn.classList.add('tag');
         oBtn.textContent = `${curSelectCity}-${area}`;
         oBtn.setAttribute('data-city', 0);
-        oBtn.addEventListener('click', handleTagClick);
+        oBtn.addEventListener('click', handleCityTagClick);
         return oBtn;
     }
 
@@ -326,27 +328,61 @@
     let selectPurposes = [];
     function handlePurposesOptions(ev) {
         console.dir(this.innerText);
+
+        let selectItem = this.innerText.trim();
+        // 刪除選項
         if (Array.from(this.classList).includes('select')) {
-            selectPurposes.includes && selectPurposes.splice(selectPurposes.findIndex(item => item == this.innerText.trim()), 1);
+            selectPurposes.includes && selectPurposes.splice(selectPurposes.findIndex(item => item == selectItem), 1);
+            let tag = Array.from(oTagPurposes.children).find(dom => dom.innerText.trim() == selectItem);
+            handleTagDel(tag);
         } else {
-            selectPurposes.push(this.innerText.trim());
+            // 新增選項
+            selectPurposes.push(selectItem);
+            addPurposeTag(selectItem)
         }
         this.classList.toggle('select');
         ev.cancelBubble = true;
     }
 
+    function addPurposeTag(item) {
+        oTagPurposes.appendChild(genPurposeTag(item));
+    }
+    function genPurposeTag(item) {
+        const oBtn = document.createElement('button');
+        oBtn.classList.add('tag');
+        oBtn.textContent = `${item}`;
+        oBtn.addEventListener('click', handlePurposeTagClick);
+        return oBtn;
+    }
+
+    function handlePurposeTagClick(ev) {
+        let selectItem = this.innerText.trim();
+        selectPurposes.includes && selectPurposes.splice(selectPurposes.findIndex(item => item == selectItem), 1);
+        handleTagDel(this);
+        Array.from(aPurposesOption).find(dom => dom.innerText.trim() == selectItem).classList.remove('select');
+        ev.cancelBubble = true;
+    }
+
 
     // 價格區間
-    let selectPriceRange = '不限';
+    let selectPriceRange = '價格不限';
     function handlePriceRangeOptions(ev) {
-        console.log(this.dataset.cuz);
+        
         selectPriceRange = this.innerText.trim();
-        handlePriceValue(selectPriceRange);
+
+        // 處理選中的類
         aPriceRangeOption.forEach(dom => dom.classList.remove('select'));
         this.classList.add('select');
 
+        // 如果選中的不是自定義的價格按鈕時，要重置自定義價格按鈕
         if (!this.dataset.cuz) {
             resetCuzPriceRange();
+            // 改 tag 文字
+            oTagPriceBtn.textContent = handlePriceValue(selectPriceRange);
+            selectPriceRange = oTagPriceBtn.textContent;
+        } else {
+            oTagPriceBtn.textContent = handlePriceValue([n1, n2]);
+            selectPriceRange = oTagPriceBtn.textContent;
         }
 
         console.log(selectPriceRange);
@@ -356,8 +392,11 @@
     function handlePriceValue(price) {
         if (price === '不限') {
             return '價格不限';
-        } else if (price.startsWith('-')) {
-            return '';
+        } else if (Object.prototype.toString.call(price) === '[object Array]') {
+            [n1, n2] = price;
+            return (n1 == null && n2 == null) ? '價格不限' :
+                   (n1 == null) ? `${n2} 萬以下` :
+                   (n2 == null) ? `${n1} 萬以上` : `${n1} - ${n2} 萬`
         } else {
             return price
         }
@@ -396,7 +435,8 @@
             }
         }
 
-        console.log(n1, n2);
+        oTagPriceBtn.textContent = handlePriceValue([n1, n2]);
+        selectPriceRange = oTagPriceBtn.textContent;
     }
 
     function resetCuzPriceRange() {
@@ -404,6 +444,15 @@
         n2 = null;
         oPriceInputN1.value = '';
         oPriceInputN2.value = '';
+    }
+
+    
+    function handleTagPriceBtn() {
+        resetCuzPriceRange();
+        aPriceRangeOption.forEach(dom => dom.classList.remove('select'));
+        Array.from(aPriceRangeOption).find(dom => dom.innerText.trim() == '不限').classList.add('select');
+        selectPriceRange = '價格不限';
+        this.textContent = selectPriceRange;
     }
 
 
