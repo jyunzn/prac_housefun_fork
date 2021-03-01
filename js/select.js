@@ -121,15 +121,8 @@
                 Array.from(aAreaOption).find(dom => dom.innerText == area).classList.remove('select');
             }
 
-            // 處理按鈕本身
-                // 如果當前城市已經沒有選擇的區域，就把按鈕改成城市鈕
-            if (selectAreas[city].length == 0) {
-                this.textContent = city;
-                this.setAttribute('data-city', city);
-            } else {
-                // 如果還有的話，就刪掉按鈕本身
-                this.parentElement.removeChild(this);
-            }
+            // 刪除按鈕本身
+            handleTagDel(this, city)
         } else {
             let str = this.innerText;
 
@@ -143,7 +136,7 @@
             handleTips();
 
             // 刪除按鈕本身
-            this.parentElement.removeChild(this);
+            handleTagDel(this);
 
             // 回到城市選單，重新選擇城市
             curSelectCity = '';
@@ -153,6 +146,22 @@
         console.log(selectAreas, selectCount);
         handleDisableClass();
         ev.cancelBubble = true;
+    }
+
+    function handleTagDel(tag, city = null) {
+        if (city) {
+            // 處理按鈕本身
+            // 如果當前城市已經沒有選擇的區域，就把按鈕改成城市鈕
+            if (selectAreas[city].length == 0) {
+                tag.textContent = city;
+                tag.setAttribute('data-city', city);
+            } else {
+                // 如果還有的話，就刪掉按鈕本身
+                tag.parentElement.removeChild(tag);
+            }
+            return ;
+        }
+        tag.parentElement.removeChild(tag);
     }
 
     let selectAreas = {};
@@ -168,6 +177,11 @@
             removeCity(tmp);
             curSelectCity = '';
             this.classList.remove('select');
+            
+            console.log(tmp);
+
+            let tags = Array.from(oTagAreas.children).filter(dom => dom.innerText.startsWith(tmp));
+            tags.forEach(tag => handleTagDel(tag));
         } else {
             let tmp = this.innerText.trim();
             // 最多提供三個地點的查詢
@@ -242,6 +256,8 @@
         if (ev.target.dataset.remove) {
             removeArea(curSelectCity, seletedArea);
             this.classList.remove('select');
+            let tag = Array.from(oTagAreas.children).find(dom => dom.innerText == `${curSelectCity}-${seletedArea}`);
+            handleTagDel(tag, curSelectCity);
         } else {
             // 最多三個，但是如果當前的城市還沒選區的話可以放行
             if (selectCount >= 3 && selectAreas[curSelectCity].length !== 0) return;
