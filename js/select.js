@@ -250,18 +250,21 @@
     let n1 = null;
     let n2 = null;
     function handlePriceInputBlur(ev) {
-        let input = Number(this.value);
-        if (Number.isNaN(input)) {
-            this.value = '';
-            return;
-        }
+        // let input = Number(this.value);
+        // if (Number.isNaN(input)) {
+        //     this.value = '';
+        //     return;
+        // }
 
-        let n = this.dataset.n;
-        if (n == 'n1') {
-            n1 = input;
-        } else {
-            n2 = input;
-        }
+        // let n = this.dataset.n;
+        // if (n == 'n1') {
+        //     n1 = input;
+        //     if (n1 > n2) {
+                
+        //     }
+        // } else {
+        //     n2 = input;
+        // }
         
     }
 
