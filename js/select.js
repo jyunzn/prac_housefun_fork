@@ -23,9 +23,15 @@
     let aPurposesOption  = document.querySelectorAll('.purposes .option');
     let aPriceRangeOption  = document.querySelectorAll('.price-range .option');
 
+    // 三個大區塊
+    let oAddr = document.querySelector('.select-area .addr');
+    let oPurposes = document.querySelector('.select-area .purposes');
+    let oPriceRange = document.querySelector('.select-area .price-range');
+
     
     // 其他
     let oSelectAreaTipBox = oselectArea.querySelector('.select-area-tip-box'); // 小提示框
+    let aPriceInputBox = oPriceRange.querySelectorAll('.price-input-box input'); // 輸入金額的匡
 
 
     oCityBtn.addEventListener('click', handleCityBtn);
@@ -39,14 +45,20 @@
     aPriceRangeOption.forEach(dom => dom.addEventListener('click', handlePriceRangeOptions));
 
     document.addEventListener('click', handleDocumentClick);
+    aPriceInputBox.forEach(dom => dom.addEventListener('blur', handlePriceInputBlur));
 
     // 最上面四顆按鈕的點擊事件處理
     function handleCityBtn(ev) {
+        
+        handleDisplayArea(oAddr, [oPurposes, oPriceRange]);
         moveAreaOptions(false);
         oselectArea.style.visibility = 'unset';
         ev.cancelBubble = true;
+        
     }
     function handleAreaBtn(ev) {
+        handleDisplayArea(oAddr, [oPurposes, oPriceRange]);
+
         // 如果當前沒有選中任何城市，不給去選成區域
         if (curSelectCity == '') {
             moveAreaOptions(false);
@@ -58,15 +70,26 @@
         ev.cancelBubble = true;
     }
     function handleHouseBtn(ev) {
-        
-        oselectArea.style.visibility = 'unset';
-        ev.cancelBubble = true;
-    }
-    function handlePriceBtn(ev) {
+        handleDisplayArea(oPurposes, [oAddr, oPriceRange]);
 
         oselectArea.style.visibility = 'unset';
         ev.cancelBubble = true;
     }
+    function handlePriceBtn(ev) {
+        handleDisplayArea(oPriceRange, [oAddr, oPurposes]);
+
+        oselectArea.style.visibility = 'unset';
+        ev.cancelBubble = true;
+    }
+
+
+    function handleDisplayArea(displayDom, hiddenDoms) {
+        hiddenDoms.forEach(dom => (dom.style.display = 'none'));
+        displayDom.style.display = 'block';
+    }
+
+
+
 
     function handleDisableClass() {
         if (selectCount >= 3) {
@@ -222,6 +245,24 @@
         } else {
             return price
         }
+    }
+
+    let n1 = null;
+    let n2 = null;
+    function handlePriceInputBlur(ev) {
+        let input = Number(this.value);
+        if (Number.isNaN(input)) {
+            this.value = '';
+            return;
+        }
+
+        let n = this.dataset.n;
+        if (n == 'n1') {
+            n1 = input;
+        } else {
+            n2 = input;
+        }
+        
     }
 
 
