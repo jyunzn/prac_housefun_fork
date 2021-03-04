@@ -12,7 +12,8 @@
     display: block;
     height: 48px;
     width: 122px;
-    background-image: url(../../imgs/m-nav-logo-idx.png); }
+    background: url(https://fakeimg.pl/350x200/?text=LOGO) no-repeat center;
+    background-size: cover; }
     .header .main .logo-box h1 {
       text-indent: -9999px;
       height: 0; }
@@ -408,7 +409,7 @@
   padding-top: 30px;
   background: #f8f8f8; }
   .footer .ad {
-    background: url(../../imgs/17690A52BFE.gif);
+    background: url(https://fakeimg.pl/970x100/?text=advertising);
     height: 90px;
     margin-bottom: 32.5px; }
     .footer .ad a {
@@ -452,7 +453,8 @@
     background: #E40; }
 
 .main .banner {
-  background: url(../../imgs/banner.jpg) no-repeat center;
+  background: url(https://picsum.photos/id/177/1350/400) no-repeat center;
+  background-size: cover;
   height: 360px;
   position: relative;
   z-index: 1; }
@@ -934,7 +936,8 @@
   padding-top: 0; }
   .main .app main {
     height: 515px;
-    background: url(../../imgs/buy-app.png) no-repeat;
+    background: url(../../imgs/buy-app.jpg) no-repeat;
+    background-size: contain;
     position: relative; }
     .main .app main .app-box {
       position: absolute;
@@ -992,7 +995,9 @@
       width: 224px; }
       .main .news main .news-list .hf div {
         height: 100%;
-        width: 100%; }
+        width: 100%;
+        border-radius: 50%;
+        overflow: hidden; }
       .main .news main .news-list .hf b {
         display: block;
         position: absolute;
@@ -1014,17 +1019,23 @@
           height: 74px;
           width: 74px; }
       .main .news main .news-list .hf.news b {
-        background: url(../../imgs/ph-icon-bg.png); }
+        background: rgba(101, 173, 101, 0.5);
+        border-radius: 50%; }
         .main .news main .news-list .hf.news b i {
-          background: url(../../imgs/hf-icon.png) no-repeat center; }
+          background: url(../../imgs/hf-icon.svg) no-repeat center;
+          background-size: contain; }
       .main .news main .news-list .hf.lecture b {
-        background: url(../../imgs/ph-icon-bg.png); }
+        background: rgba(101, 173, 101, 0.5);
+        border-radius: 50%; }
         .main .news main .news-list .hf.lecture b i {
-          background: url(../../imgs/hf-icon3.png) no-repeat center; }
+          background: url(../../imgs/hf-icon3.svg) no-repeat center;
+          background-size: contain; }
       .main .news main .news-list .hf.tv b {
-        background: url(../../imgs/ph-icon-bg.png); }
+        background: rgba(101, 173, 101, 0.5);
+        border-radius: 50%; }
         .main .news main .news-list .hf.tv b i {
-          background: url(../../imgs/hf-icon2.png) no-repeat center; }
+          background: url(../../imgs/hf-icon2.svg) no-repeat center;
+          background-size: contain; }
     .main .news main .news-list figcaption {
       padding-top: 5px;
       text-align: center;
@@ -1050,28 +1061,34 @@
 .main .line-img {
   height: 104px;
   width: 104px; }
-  .main .line-img div {
+  .main .line-img > div {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     position: relative; }
-    .main .line-img div::before {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      opacity: 0; }
-  .main .line-img:hover div::before {
-    opacity: 1; }
+  .main .line-img:hover .icon-box .default {
+    display: none; }
+  .main .line-img:hover .icon-box .hover {
+    display: inline-block; }
 
-.main .line .buy-line div::before {
-  background: url("../../imgs/line1-qr.png"); }
+.main .line .buy-line > div {
+  background: #6ab66a; }
 
-.main .line .news-line div::before {
-  background: url("../../imgs/line2-qr.png"); }
+.main .line .news-line > div {
+  background: #44aa77; }
 
-.main .line .tv-line div::before {
-  background: url("../../imgs/line3-qr.png"); }
+.main .line .tv-line > div {
+  background: #86b727; }
+
+.main .line .icon-box {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+  .main .line .icon-box .hover {
+    display: none; }
 
 .main .line main {
   display: flex;

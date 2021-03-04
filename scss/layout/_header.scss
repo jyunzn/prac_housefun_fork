@@ -16,7 +16,9 @@
         display: block;
         height: 48px;
         width: 122px;
-        background-image: url(../../imgs/m-nav-logo-idx.png);
+        // background-image: url(../../imgs/m-nav-logo-idx.png);
+        background: url(https://fakeimg.pl/350x200/?text=LOGO) no-repeat center;
+        background-size: cover;
         h1 {
             text-indent: -9999px;
             height: 0;

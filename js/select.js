@@ -57,9 +57,7 @@
     oTagPriceBtn.addEventListener('click', handleTagPriceBtn);
     oAddrPrev.addEventListener('click', handleAddrPrevBtn);
 
-    // oAddr.addEventListener('wheel', function (ev) {
-    //     console.log(ev.preventDefault());
-    // });
+    // oAddr.addEventListener('wheel', handleAddrMouseWheel);
 
     // 最上面四顆按鈕的點擊事件處理
     function handleCityBtn(ev) {
@@ -527,6 +525,19 @@
         oAreaOptions.innerHTML = html;
         aAreaOption  = document.querySelectorAll('#area-options .option');
         aAreaOption.forEach(dom => dom.addEventListener('click', handleAreaOptions));
+    }
+
+
+    // 滑鼠滑動地區處理
+    let t = Date.now();
+    let a = Math.floor(1000 / 60);
+    function handleAddrMouseWheel(ev) {
+        ev.preventDefault();
+        let c = Date.now();
+        if ((c - t) < a) return ;
+
+        t = c;
+        console.log(ev.wheelDelta);
     }
 
 })();
